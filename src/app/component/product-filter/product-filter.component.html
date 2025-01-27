@@ -1,0 +1,36 @@
+<section class="container d-xl-block mt-3 card p-3 shadow">
+    <form #miForm="ngForm" (ngSubmit)="getDataFilter(miForm)">
+        <!-- Filtro por Nombre -->
+        <div class="form-group mb-3">
+            <input class="form-control" type="text" id="name" placeholder="Filtrar por nombre" name="name" ngModel>
+        </div>
+
+        <div class="form-group mb-3">
+            <select name="category" id="category" class="form-control" ngModel>
+                <option value="" selected>Seleccione una categoría</option>
+                <option value="Mujer">Mujer</option>
+                <option value="Niño">Niño</option>
+                <option value="Hombre">Hombre</option>
+            </select>
+        </div>
+
+        <div class="form-group mb-3">
+            <input class="form-control" type="number" id="price" placeholder="Filtrar por precio" name="price" ngModel>
+        </div>
+
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="active" name="active" ngModel>
+            <label class="form-check-label" for="active">Activos</label>
+        </div>
+
+        <div class="text-center">
+            <input type="submit" value="Filtrar" class="btn btn-secondary text-center">
+        </div>
+    </form>
+</section>
+
+<br><br><br>
+
+
+
+

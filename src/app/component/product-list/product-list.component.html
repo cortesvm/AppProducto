@@ -1,0 +1,20 @@
+<section class="container mt-3">
+    <h2>MisProductos</h2>
+    <hr>
+
+    <div class="mt-3">
+        <!-- <app-product-filter (productosFiltrados)="onFilterApplied($event)"></app-product-filter> -->
+    </div>
+
+    <div class="row g-2 mt-3">
+        @for(product of productos;track product.id){
+            <article class="col-12 col-md-6 col-lg-4 mt-5">
+                <app-product-card [miProducto]="product"></app-product-card>
+            </article>
+        }
+        @empty {
+            <h2>NO HAY PRODUCTOS</h2>
+        }
+    </div>
+</section>
+

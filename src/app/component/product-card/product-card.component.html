@@ -1,0 +1,24 @@
+<section class="container d-xl-inline-block  mt-5"> 
+    <div class="row">
+        <h1 class="text-center">Mis productos</h1>
+        @for(miProducto of arrProductos; track miProducto._id) {
+            <div class="col-md-4 mb-4 p-1 shadow">
+                <div class="card" style="width: 100%; height: 100%;">
+                    <h5 class="card-header text-center">{{miProducto.name}}</h5>
+                    <img class="card-img-top" [src]="miProducto.image" [alt]="miProducto">
+                    <div class="card-body">
+                        <p class="card-text">{{miProducto.description}}</p>
+                        <p><strong>Precio: ${{miProducto.price}}</strong></p>
+                        <p>category: {{miProducto.category}}</p>
+                        <p *ngIf="miProducto.active; else inactivo">Producto Activo</p>
+                        <ng-template #inactivo>
+                            <p>Producto Inactivo</p>
+                        </ng-template>
+                    </div>
+                        <button class="text-center mt-2" (click)="deleteProducto(miProducto)" type="button" class="btn btn-secondary">Eliminar</button>
+                </div>
+            </div>
+        }
+    </div>
+</section>
+

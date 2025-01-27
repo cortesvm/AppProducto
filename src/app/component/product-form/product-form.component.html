@@ -1,0 +1,84 @@
+<section class="container mt-3">
+
+    <form [formGroup]="modelForm" (ngSubmit)="getDataForm()" class="card p-3 shadow">
+        <div class="my-2">
+            <label for="name" class="form-label">Nombre</label>
+            <input type="text" class="form-control mb-1" placeholder="Introduce un nombre" id="name" formControlName="name">
+            @if(checkControl('name', 'required')){
+                <p class="error">Campo requerido</p>
+            }
+            @if(checkControl('name', 'minlength')){
+                <p class="error">El nombre debe de tener al menos 3 caracteres</p>
+            }
+        </div>
+        <div class="my-2">
+            <label for="description" class="form-label">Description</label>
+            <input type="text" class="form-control mb-1" placeholder="Introduce una description" id="description" formControlName="description">
+            @if(checkControl('description', 'required')){
+                <p class="error">Campo requerido</p>
+            }
+            @if(checkControl('description', 'minlength')){
+                <p class="error">La description debe de tener al menos 3 caracteres</p>
+            }
+        </div>
+
+        <div class="my-2">
+            <label for="id" class="form-label">Id</label>
+            <input type="text" class="form-control mb-1" placeholder="Introduce un id" id="id" formControlName="_id">
+            @if(checkControl('id', 'required')){
+                <p class="error">Campo requerido</p>
+            }
+            @if(checkControl('id', 'pattern')){
+                <p class="error">Formato incorrecto para del id</p>
+            }
+        </div>
+
+        <div class="my-2">
+            <label for="price" class="form-label">Precio</label>
+            <input type="text" class="form-control mb-1" placeholder="Introduce un precio" id="price" formControlName="price">
+            @if(checkControl('price', 'required')){
+            <p class="error">Campo requerido</p>
+            }
+            @if(checkControl('price', 'min') || checkControl('price', 'max')){
+                <p class="error">El valor del precio no esta dentro de los limites 0-120</p>
+            }
+        </div>
+
+        <div class="my-2">
+            <label for="category" class="form-label">Categoria</label>
+            <select class="form-control mb-1" placeholder="Introduce una category" id="category" formControlName="category">
+                <option>Hombre</option>
+                <option>Mujer</option>
+                <option>Niño</option>
+            </select>
+            <p class="error" *ngIf="checkControl('active', 'required')">Campo requerido</p>
+        </div>
+
+        <div class="my-2">
+            <label for="imagen" class="form-label">Imagen</label>
+            <input type="text" class="form-control mb-1" placeholder="Introduce una imagen" id="image" formControlName="image">
+            @if(checkControl('imagen', 'required')){
+            <p class="error">Campo requerido</p>
+            }
+            
+        </div>
+
+        <div class="my-2">
+            <label for="active" class="form-label">Active</label>
+            <select class="form-control mb-1" id="active" formControlName="active">
+                <option [value]="true">Sí</option>
+                <option [value]="false">No</option>
+            </select>
+            <p class="error" *ngIf="checkControl('active', 'required')">Campo requerido</p>
+        </div>
+
+
+        <button class="btn btn-secondary mt-5" [disabled]="!modelForm.valid"> Guardar</button>
+    </form>
+</section>
+<br>
+<br>
+<br>
+<br>
+
+

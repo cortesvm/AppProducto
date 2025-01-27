@@ -1,0 +1,7 @@
+
+input[type="number"] {
+    appearance: textfield; 
+  }
+  .btn-custom {
+    background-color:  rgb(98, 179, 179);
+  }
